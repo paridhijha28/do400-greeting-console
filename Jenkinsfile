@@ -21,6 +21,15 @@ pipeline{
             }
         }
 
+
         // Add the Release stage here
+stage('Release') {
+     steps {
+            sh '''
+                  oc project fazazr-greetings
+                  oc start-build greeting-console --follow --wait
+               '''
+           }
+         }
     }
 }
